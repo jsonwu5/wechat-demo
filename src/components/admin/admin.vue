@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <span>这是后台管理页面</span>
   </div>
 </template>

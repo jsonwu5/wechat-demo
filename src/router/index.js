@@ -3,13 +3,20 @@ import Router from 'vue-router'
 import Message from 'components/message/message'
 import Me from 'components/me/me'
 import Home from 'components/home/home'
-import Admin from 'components/admin/admin'
 import Error from 'components/error/error'
+import Admin from 'components/admin/admin'
 import User from 'components/user/user'
 
 Vue.use(Router)
 
-export let baseRoutes = [
+// 路由映射表
+export const routerMap = {
+  Admin: Admin,
+  User: User
+}
+
+// 基本路由，包含所有无需权限即可访问的路由
+export let baseRoute = [
   {
     path: '/',
     redirect: 'message'
@@ -28,18 +35,16 @@ export let baseRoutes = [
     component: Me,
     children: [
       {
-        path: 'home',
-        component: Home
-      },
-      {
         path: 'user',
         component: User
-      },
-      {
-        path: 'admin',
-        component: Admin
       }
     ]
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    meta: {index: 2},
+    component: Home
   },
   {
     path: '/404',
@@ -49,10 +54,10 @@ export let baseRoutes = [
   },
   {
     path: '*',
-    redirect: '/error'
+    redirect: '/404'
   }
 ]
 
 export default new Router({
-  routes: baseRoutes
+  routes: baseRoute
 })

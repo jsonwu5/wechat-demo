@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition :name="transitionName">
+    <transition :name="name">
       <router-view/>
     </transition>
     <tab></tab>
@@ -13,18 +13,14 @@ export default {
   name: 'App',
   data () {
     return {
-      transitionName: ''
+      name: ''
     }
   },
   watch: {
     // 监听路由的变化
     $route (to, from) {
-      // 若to的index大于from的index，则为前进，否则为后退
-      if (to.meta.index > from.meta.index) {
-        this.transitionName = 'slide-left'
-      } else {
-        this.transitionName = 'slide-right'
-      }
+      // 若to的index大于from的index，则为前进效果，否则为后退效果
+      this.name = to.meta.index > from.meta.index ? 'slide-left' : 'slide-right'
     }
   },
   components: {

@@ -1,13 +1,12 @@
 <template>
   <div class="content">
     <div class="wrap">
-      <span class="text">这是我的页面</span>
-      <div>
-        <router-link tag="a" class="btn"  to="/me/admin">后台管理页面</router-link>
-        <router-link tag="a" class="btn"  to="/me/home">首页</router-link>
-        <router-link tag="a" class="btn"  to="/me/user">用户个人页面</router-link>
+      <span class="text">这是我的页面</span><br/>
+      <router-link tag="a" class="url" to="/me/user">访问子页面</router-link><br/>
+      <a class="url" href="https://github.com/jsonwu5/wechat-demo">Github</a>
+      <div class="child">
+        <router-view></router-view>
       </div>
-      <router-link></router-link>
     </div>
   </div>
 </template>
@@ -31,9 +30,18 @@ export default {
     flex-direction: column;
   }
 
-  .page {
-    background-color: #10aeff;
+  .url {
+    border: 1px solid #ff9300;
+    border-radius: 4px;
+    padding: 5px;
+    color: #ff9300;
+    text-decoration: none;
+    width: 100px;
+    margin: 0 auto;
+  }
+
+  .child {
     width: 100%;
-    height: 200px;
+    height: 100px;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <span>这是用户个人信息页面</span>
+  <div class="content">
+    <span>这是用户页面</span>
   </div>
 </template>
 

@@ -1,9 +1,13 @@
 <template>
   <div id="app">
-    <transition :name="name">
-      <router-view/>
-    </transition>
-    <tab></tab>
+    <div class="wrap">
+      <transition :name="name">
+          <router-view/>
+      </transition>
+    </div>
+    <footer class="footer">
+      <tab></tab>
+    </footer>
   </div>
 </template>
 
@@ -28,6 +32,27 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 44px;
+    overflow: scroll;
+  }
+
+  .footer {
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    border-top: 1px solid #d9d9d9;
+    background-color: #f9f9f9;
+  }
+</style>
 
 <style>
   html, body, #app {
